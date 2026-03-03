@@ -1,8 +1,21 @@
-import Link from "next/link"
-import { ArrowRight, BarChart3, Calendar, CheckSquare, Clock, Users } from "lucide-react"
+import Link from "next/link";
+import {
+  ArrowRight,
+  BarChart3,
+  Calendar,
+  CheckSquare,
+  Clock,
+  Users,
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export default function Home() {
   return (
@@ -14,22 +27,40 @@ export default function Home() {
             <span>ProjectPro</span>
           </Link>
           <nav className="hidden md:flex gap-6">
-            <Link href="/" className="text-sm font-medium transition-colors hover:text-primary">
+            <Link
+              href="/"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
               Inicio
             </Link>
-            <Link href="/dashboard" className="text-sm font-medium transition-colors hover:text-primary">
+            <Link
+              href="/dashboard"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
               Dashboard
             </Link>
-            <Link href="/projects" className="text-sm font-medium transition-colors hover:text-primary">
+            <Link
+              href="/projects"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
               Proyectos
             </Link>
-            <Link href="/tasks" className="text-sm font-medium transition-colors hover:text-primary">
+            <Link
+              href="/tasks"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
               Tareas
             </Link>
-            <Link href="/team" className="text-sm font-medium transition-colors hover:text-primary">
+            <Link
+              href="/team"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
               Equipo
             </Link>
-            <Link href="/resources" className="text-sm font-medium transition-colors hover:text-primary">
+            <Link
+              href="/resources"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
               Recursos
             </Link>
           </nav>
@@ -54,8 +85,9 @@ export default function Home() {
                   Sistema de Gestión de Proyectos Empresariales
                 </h1>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  Planifica, ejecuta y monitorea tus proyectos de manera eficiente. Facilita la colaboración entre los
-                  miembros del equipo, asigna tareas y gestiona recursos.
+                  Planifica, ejecuta y monitorea tus proyectos de manera
+                  eficiente. Facilita la colaboración entre los miembros del
+                  equipo, asigna tareas y gestiona recursos.
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Link href="/register">
@@ -76,7 +108,9 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20" />
                   <div className="relative z-10 h-full rounded-lg border bg-background p-4">
                     <div className="flex items-center justify-between border-b pb-2">
-                      <div className="text-sm font-medium">Dashboard de Proyectos</div>
+                      <div className="text-sm font-medium">
+                        Dashboard de Proyectos
+                      </div>
                       <div className="flex items-center gap-1">
                         <div className="h-2 w-2 rounded-full bg-red-500" />
                         <div className="h-2 w-2 rounded-full bg-yellow-500" />
@@ -106,7 +140,8 @@ export default function Home() {
                   Características Principales
                 </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Nuestro sistema ofrece todas las herramientas necesarias para gestionar proyectos de manera eficiente
+                  Nuestro sistema ofrece todas las herramientas necesarias para
+                  gestionar proyectos de manera eficiente
                 </p>
               </div>
             </div>
@@ -118,8 +153,8 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <CardDescription>
-                    Crea, asigna y monitorea tareas. Establece prioridades y fechas límite para mantener tu proyecto en
-                    marcha.
+                    Crea, asigna y monitorea tareas. Establece prioridades y
+                    fechas límite para mantener tu proyecto en marcha.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -130,7 +165,8 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <CardDescription>
-                    Facilita la comunicación y colaboración entre los miembros del equipo con herramientas integradas.
+                    Facilita la comunicación y colaboración entre los miembros
+                    del equipo con herramientas integradas.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -141,7 +177,8 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <CardDescription>
-                    Crea cronogramas detallados, establece hitos y visualiza la línea de tiempo del proyecto.
+                    Crea cronogramas detallados, establece hitos y visualiza la
+                    línea de tiempo del proyecto.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -152,7 +189,8 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <CardDescription>
-                    Analiza el rendimiento del proyecto con métricas de funcionalidad y usabilidad en tiempo real.
+                    Analiza el rendimiento del proyecto con métricas de
+                    funcionalidad y usabilidad en tiempo real.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -163,7 +201,8 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <CardDescription>
-                    Registra el tiempo dedicado a cada tarea y proyecto para una mejor gestión de recursos.
+                    Registra el tiempo dedicado a cada tarea y proyecto para una
+                    mejor gestión de recursos.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -174,7 +213,8 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <CardDescription>
-                    Define procesos personalizados basados en componentes y metodologías ágiles como RUP.
+                    Define procesos personalizados basados en componentes y
+                    metodologías ágiles como RUP.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -188,19 +228,27 @@ export default function Home() {
             © 2025 ProjectPro. Todos los derechos reservados.
           </p>
           <div className="flex gap-4">
-            <Link href="/terms" className="text-sm text-muted-foreground hover:underline">
+            <Link
+              href="/terms"
+              className="text-sm text-muted-foreground hover:underline"
+            >
               Términos
             </Link>
-            <Link href="/privacy" className="text-sm text-muted-foreground hover:underline">
+            <Link
+              href="/privacy"
+              className="text-sm text-muted-foreground hover:underline"
+            >
               Privacidad
             </Link>
-            <Link href="/contact" className="text-sm text-muted-foreground hover:underline">
+            <Link
+              href="/contact"
+              className="text-sm text-muted-foreground hover:underline"
+            >
               Contacto
             </Link>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
-
