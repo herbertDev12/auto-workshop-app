@@ -1,20 +1,14 @@
-
+import { ZodValidationPipe } from 'nestjs-zod';
 import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  // use the Zod pipe with no options (constructor expects a schema or dto)
+  app.useGlobalPipes(new ZodValidationPipe());
+  // Global validation using Zod; it will reject invalid payloads
  
-  // Global validation: strip unknown props, reject non-whitelisted fields
-  app.useGlobalPipes(
-    new ValidationPipe({
-      whitelist: true,
-      forbidNonWhitelisted: true,
-      transform: true,
-    }),
-  );
 
   const swaggerConfig = new DocumentBuilder()
     .setTitle('Auto Workshop API')

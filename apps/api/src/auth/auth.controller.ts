@@ -6,7 +6,6 @@ import {
   ApiTags,
   ApiOperation,
   ApiCreatedResponse,
-  ApiOkResponse,
 } from '@nestjs/swagger';
 
 @ApiTags('auth')
