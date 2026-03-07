@@ -14,25 +14,25 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { FormProvider, useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
-import { RegisterSchema, registerSchema } from "./register-schema";
+import type { IRegisterInputDto } from "@repo/schemas/auth/auth";
+import { registerInputSchema } from "@repo/schemas/auth/auth";
 
 const RegisterForm: React.FC = () => {
-  const form = useForm<RegisterSchema>({
-    resolver: zodResolver(registerSchema),
+  const form = useForm<IRegisterInputDto>({
+    resolver: zodResolver(registerInputSchema),
     mode: "onChange",
     reValidateMode: "onChange",
     defaultValues: {
       name: "",
-      age: 1,
+      lastName: "",
       email: "",
       password: "",
     },
   });
 
-  function onSubmit(data: RegisterSchema) {
+  function onSubmit(data: IRegisterInputDto) {
     toast("You submitted the following values:", {
       description: (
         <pre className="bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4">
@@ -85,16 +85,6 @@ const RegisterForm: React.FC = () => {
                       required
                     />
                   </div>
-                </div>
-
-                <div className="grid gap-2">
-                  <RHFInput
-                    name="age"
-                    label="Edad"
-                    type="number"
-                    placeholder="Ingresa tu edad"
-                    required
-                  />
                 </div>
 
                 <div className="grid gap-2">
