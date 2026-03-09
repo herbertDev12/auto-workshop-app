@@ -18,8 +18,21 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import type { IRegisterInputDto } from "@repo/schemas/auth/auth";
 import { registerInputSchema } from "@repo/schemas/auth/auth";
+import { register } from "./services";
+import { useRouter } from "next/navigation";
+import { useMutation } from "@tanstack/react-query";
 
 const RegisterForm: React.FC = () => {
+  const mutation = useMutation({
+    mutationFn: register,
+    onSuccess: (data) => {
+      console.log("User registered:", data);
+    },
+    onError: (error) => {
+      console.error(error);
+    },
+  });
+
   const form = useForm<IRegisterInputDto>({
     resolver: zodResolver(registerInputSchema),
     mode: "onChange",
@@ -32,21 +45,18 @@ const RegisterForm: React.FC = () => {
     },
   });
 
-  function onSubmit(data: IRegisterInputDto) {
-    toast("You submitted the following values:", {
-      description: (
-        <pre className="bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4">
-          <code>{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-      position: "bottom-right",
-      classNames: {
-        content: "flex flex-col gap-2",
-      },
-      style: {
-        "--border-radius": "calc(var(--radius)  + 4px)",
-      } as React.CSSProperties,
-    });
+  const router = useRouter();
+
+  async function onSubmit(data: IRegisterInputDto) {
+    console.log("Submitting registration form with data:", data);
+    mutation.mutate(data);
+
+    if (mutation.isSuccess) {
+      toast.success("Registro exitoso");
+      router.push("/login");
+    } else if (mutation.isError) {
+      toast.error("Error al registrar: " + mutation.error);
+    }
   }
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-muted">
@@ -66,7 +76,7 @@ const RegisterForm: React.FC = () => {
         </CardHeader>
         <CardContent>
           <FormProvider {...form}>
-            <form action="/dashboard">
+            <form action="/dashboard" onSubmit={form.handleSubmit(onSubmit)}>
               <div className="grid gap-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="grid gap-2">

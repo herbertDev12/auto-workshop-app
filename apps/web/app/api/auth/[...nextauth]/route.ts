@@ -28,7 +28,7 @@ export const authOptions: AuthOptions = {
         password: {},
       },
       async authorize(credentials) {
-        const res = await fetch("https://your-backend.com/login", {
+        const res = await fetch("https://localhost:4000/auth/login", {
           method: "POST",
           body: JSON.stringify(credentials),
           headers: { "Content-Type": "application/json" },
