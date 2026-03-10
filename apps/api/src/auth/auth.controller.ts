@@ -1,5 +1,5 @@
-import { Body, Controller, Post } from '@nestjs/common';
-import { LoginOutputDto, RegisterInputDto } from '@schemas/auth/auth.dto';
+import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
+import { LoginInputDto, LoginOutputDto, RegisterInputDto } from '@schemas/auth/auth.dto';
 import { AuthService } from './auth.service';
 import {
   ApiBody,
@@ -22,6 +22,18 @@ export class AuthController {
   })
   register(@Body() registerInputDto: RegisterInputDto) {
     return this.authService.register(registerInputDto);
+  }
+
+  @HttpCode(HttpStatus.OK)
+  @Post('/login') 
+  @ApiOperation({ summary: 'Signin a user' })
+  @ApiBody({ type: LoginInputDto })
+  @ApiCreatedResponse({
+    type: LoginOutputDto,
+    description: 'User loged successfully, returns the email of the user',
+  })
+  signin(@Body() signInputDto: LoginInputDto) {
+    return this.authService.signin(signInputDto);
   }
 
 }

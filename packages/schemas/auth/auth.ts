@@ -1,12 +1,13 @@
 import { z } from "zod";
 
 export const loginOutputSchema = z.object({
-  userId: z.string(),
+  id: z.string(),
+  email: z.string().email(),
   token: z.string(),
 });
 
 export const loginInputSchema = z.object({
-  email: z.string(),
+  email: z.string().email(),
   password: z.string(),
 });
 
