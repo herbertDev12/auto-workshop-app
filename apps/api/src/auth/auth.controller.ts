@@ -32,8 +32,14 @@ export class AuthController {
     type: LoginOutputDto,
     description: 'User loged successfully, returns the email of the user',
   })
-  signin(@Body() signInputDto: LoginInputDto) {
-    return this.authService.signin(signInputDto);
+  signIn(@Body() signInputDto: LoginInputDto) {
+    return this.authService.signIn(signInputDto);
   }
-
+/*
+  @UseGuards(AuthGuard)
+  @Get('profile')
+  getProfile(@Request() req) {
+    return req.user;
+  }
+*/
 }
