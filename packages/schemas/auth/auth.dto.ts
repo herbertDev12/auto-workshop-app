@@ -3,8 +3,9 @@ import { loginInputSchema, loginOutputSchema, registerInputSchema } from "./auth
 import { ApiProperty } from '@nestjs/swagger';
 export class LoginOutputDto extends createZodDto(loginOutputSchema) {
   @ApiProperty({ description: 'ID of the authenticated user' })
-  userId: string;
-
+  id: string;
+  @ApiProperty({ description: 'Email of the authenticated user' })
+  email: string;
   @ApiProperty({ description: 'JWT access token' })
   token: string;
 }
